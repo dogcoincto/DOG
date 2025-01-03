@@ -1,3 +1,5 @@
+/*Homepage Styles*/
+
 /* Styles for the main body of the page */
 body {
     margin: 0;
@@ -350,4 +352,56 @@ a {
 
 .footer-content strong {
   color: #ffcc99;
+}
+
+/* Music Page Styles */
+
+/* Music Page Styles */
+.music-title {
+  margin-top: 20px;
+  font-size: 2rem;
+  color: #333;
+  text-align: center;
+}
+
+.music-description {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.music-song-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 0 10px;
+}
+
+.music-song {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.music-song:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.music-song-title {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.music-audio-player {
+  width: 100%;
+  outline: none;
 }
