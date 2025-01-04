@@ -87,6 +87,7 @@ a:hover {
 /* Styles for navigation menu links */
 .navigation-link {
     color: white;
+    text-decoration: none; /* Removes underline for clear identification */
     font-size: 1.34rem;
     font-weight: bold;
     transition: color 0.3s;
@@ -96,6 +97,7 @@ a:hover {
 /* Hover effect for navigation menu links */
 .navigation-link:hover {
     color: #FF9900;
+    text-decoration: underline; /* Adds underline for clear identification */
 }
 
 /* Styles for the logo and DOG text container */
