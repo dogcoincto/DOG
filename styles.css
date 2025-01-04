@@ -10,14 +10,15 @@ body {
 /* Styles for all links */
 a {
     color: #0066cc; /* Distinct blue for visibility */
-    text-decoration: underline; /* Adds underline for clear identification */
+    text-decoration: none; /* Removes underline for hover effect */
     font-weight: bold; /* Makes links visually prominent */
     white-space: nowrap; /* Prevents link text from wrapping */
 }
 
 a:hover {
   color: #003399; /* Darker blue on hover */
-  text-decoration: none; /* Removes underline for hover effect */
+  text-decoration: underline; /* Adds underline for clear identification */
+
 }
 
 /* Styles for the inline audio player in the top banner */
@@ -107,6 +108,7 @@ a:hover {
     font-size: 2.14rem;
     font-weight: 900;
     color: white;
+    text-decoration: none; /* Removes underline for hover effect */
     gap: 15px;
 }
 
