@@ -359,9 +359,9 @@ a {
 /* Music Page Styles */
 
 .music-container {
-  background-color: #fdf5e6; /* Cream/off-white background color */
+  background-color: var(--project-background-color, #fdf5e6); /* Matches the project-description background */
   text-align: center;
-  padding: 20px 10px;
+  padding: 20px 10px 40px; /* Adds extra bottom padding */
   line-height: 1.6;
   font-size: 1.2rem;
   color: #333;
@@ -420,44 +420,34 @@ a {
 /* FAQ Page Styles */
 
 .faq-container {
-  background-color: #fdf5e6; /* Cream/off-white background color */
-  text-align: center;
-  padding: 20px 10px;
-  line-height: 1.6;
-  font-size: 1.2rem;
-  color: #333;
-  font-family: 'Roboto', sans-serif;
+  background-color: var(--project-background-color, #fdf5e6); /* Matches project description background */
+  margin: 40px auto; /* Centers the block horizontally and adds space above/below */
+  padding: 20px 30px; /* Adds space inside the block */
+  max-width: 800px; /* Limits the width for readability */
+  border-radius: 8px; /* Adds rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+  text-align: left; /* Left-aligns the text */
 }
 
-.faq-section {
-  margin: 20px auto; /* Centers the FAQ section horizontally */
-  padding: 20px;
-  max-width: 800px; /* Sets a maximum width for the section */
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  text-align: left; /* Left-justifies the text */
-}
-
-.faq-section h2 {
+.faq-container h2 {
+  text-align: center; /* Centers the FAQ title */
+  margin-bottom: 20px; /* Adds space below the title */
   font-size: 24px;
-  color: #333;
-  margin-bottom: 15px;
-  text-align: center; /* Centers the title */
+  color: #333; /* Neutral dark color */
 }
 
 .faq-item {
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* Space between FAQ items */
 }
 
 .faq-item h3 {
   font-size: 18px;
-  color: #555;
-  margin-bottom: 5px;
+  color: #555; /* Slightly lighter heading */
+  margin-bottom: 5px; /* Space below question */
 }
 
 .faq-item p {
   font-size: 16px;
-  color: #666;
+  color: #666; /* Slightly lighter answer text */
   line-height: 1.5;
 }
