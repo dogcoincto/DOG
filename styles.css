@@ -282,6 +282,32 @@ a {
   }
 }
 
+/* Styles for the call to action button*/
+.cta-button {
+  display: inline-block;
+  background-color: #ff9900; /* Bright orange for attention */
+  color: #ffffff; /* White text for contrast */
+  font-size: 18px; /* Large, readable text */
+  font-weight: bold; /* Emphasized text */
+  text-align: center; /* Centers the text */
+  text-decoration: none; /* Removes underline */
+  padding: 12px 24px; /* Comfortable padding */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+}
+
+.cta-button:hover {
+  background-color: #cc7a00; /* Darker orange on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Slightly larger shadow */
+}
+
+.cta-button:active {
+  background-color: #b36a00; /* Even darker orange on click */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Smaller shadow for pressed effect */
+  transform: translateY(2px); /* Creates a "press" effect */
+}
+
 /* Styles for the back to top button*/
 .return-to-top-container {
   background-color: #ffd580d0; /* Semi-transparent light orange */
