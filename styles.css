@@ -9,9 +9,15 @@ body {
 
 /* Styles for all links */
 a {
-    text-decoration: none;
-    color: inherit;
+    color: #0066cc; /* Distinct blue for visibility */
+    text-decoration: underline; /* Adds underline for clear identification */
+    font-weight: bold; /* Makes links visually prominent */
     white-space: nowrap; /* Prevents link text from wrapping */
+}
+
+a:hover {
+  color: #003399; /* Darker blue on hover */
+  text-decoration: none; /* Removes underline for hover effect */
 }
 
 /* Styles for the inline audio player in the top banner */
@@ -283,6 +289,11 @@ a {
 }
 
 /* Styles for the call to action button*/
+.cta-container {
+  text-align: center; /* Centers the button horizontally */
+  margin-top: 20px; /* Adds space above the button */
+}
+
 .cta-button {
   display: inline-block;
   background-color: #ff9900; /* Bright orange for attention */
@@ -295,6 +306,7 @@ a {
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   transition: background-color 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+  margin-top: 20px; /* Additional space around the button */
 }
 
 .cta-button:hover {
