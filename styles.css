@@ -357,6 +357,17 @@ a {
 /* Music Page Styles */
 
 /* Music Page Styles */
+
+.music-container {
+  background-color: #fdf5e6; /* Cream/off-white background color */
+  text-align: center;
+  padding: 20px 10px;
+  line-height: 1.6;
+  font-size: 1.2rem;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
+
 .music-title {
   margin-top: 20px;
   font-size: 2rem;
@@ -407,6 +418,16 @@ a {
 }
 
 /* FAQ Page Styles */
+
+.faq-container {
+  background-color: #fdf5e6; /* Cream/off-white background color */
+  text-align: center;
+  padding: 20px 10px;
+  line-height: 1.6;
+  font-size: 1.2rem;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+}
 
 .faq-section {
   margin: 20px auto; /* Centers the FAQ section horizontally */
