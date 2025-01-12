@@ -1,3 +1,8 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const artworkDisplay = document.getElementById("artwork-display");
+    fetchArtwork();
+});
+
 async function fetchArtwork() {
     try {
         const response = await fetch("https://dogcoincto.s3.amazonaws.com/website_artwork_cache/artwork.json");
