@@ -1,23 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
     const artworkDisplay = document.getElementById("artwork-display");
-    fetchArtwork();
+    fetchArtwork(artworkDisplay);
 });
 
-async function fetchArtwork() {
+async function fetchArtwork(artworkDisplay) {
     try {
         const response = await fetch("https://dogcoincto.s3.amazonaws.com/website_artwork_cache/artwork.json");
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const images = await response.json();
-        populateArtwork(images);
+        populateArtwork(images, artworkDisplay);
     } catch (error) {
         console.error("Error fetching artwork:", error);
         artworkDisplay.innerHTML = "<p>Failed to load artwork. Please try again later.</p>";
     }
 }
 
-function populateArtwork(images) {
+function populateArtwork(images, artworkDisplay) {
     artworkDisplay.innerHTML = ""; // Clear current content
     images.forEach((image) => {
         const imageLink = document.createElement("a");
