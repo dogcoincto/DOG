@@ -20,8 +20,10 @@ async function fetchArtwork(artworkDisplay) {
 }
 
 function populateArtwork(images, artworkDisplay) {
+    console.log("Populating artwork with images:", images);
     artworkDisplay.innerHTML = ""; // Clear current content
     images.forEach((image) => {
+        console.log("Adding image:", image); // Log each image URL
         const imageLink = document.createElement("a");
         imageLink.href = `https://twitter.com/intent/tweet?text=Check out this amazing artwork!&url=${encodeURIComponent(image)}`;
         imageLink.target = "_blank";
@@ -35,4 +37,5 @@ function populateArtwork(images, artworkDisplay) {
         imageLink.appendChild(img);
         artworkDisplay.appendChild(imageLink);
     });
+    console.log("Artwork population complete.");
 }
