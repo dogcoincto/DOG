@@ -6,10 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
 async function fetchArtwork(artworkDisplay) {
     try {
         const response = await fetch("https://dogcoincto.s3.amazonaws.com/website_artwork_cache/artwork.json");
+        console.log("Fetch response:", response);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const images = await response.json();
+        console.log("Fetched images:", images); // Log images array
         populateArtwork(images, artworkDisplay);
     } catch (error) {
         console.error("Error fetching artwork:", error);
