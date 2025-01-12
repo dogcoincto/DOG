@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const artworkDisplay = document.getElementById("artwork-display");
     const testImages = [
-        "https://dogcoincto.s3.amazonaws.com/website_artwork_cache/image1.png",
-        "https://dogcoincto.s3.amazonaws.com/website_artwork_cache/image2.jpg"
+        "https://dogcoincto.s3.amazonaws.com/website_artwork_cache/image-1736679308703-3.jpeg",
+        "https://dogcoincto.s3.amazonaws.com/website_artwork_cache/image-1736679126637-0.svg"
     ];
     populateArtwork(testImages, artworkDisplay);
 });
