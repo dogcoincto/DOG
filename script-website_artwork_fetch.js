@@ -30,9 +30,9 @@ function populateArtwork(images, artworkDisplay) {
     });
 
     if (!contentAdded) {
-        artworkDisplay.innerHTML = "<p>Failed to populate artwork. No valid images available.</p>";
+        console.error("Failed to populate artwork: No valid images available.");
     } else {
-        artworkDisplay.innerHTML += "<p>Artwork successfully loaded!</p>";
+        console.log("Artwork successfully loaded!");
     }
 }
 
