@@ -1,21 +1,27 @@
 
 // Simple Test Script
-document.addEventListener("DOMContentLoaded", async () => {
-    const artworkDisplay = document.getElementById("artwork-display");
+async function fetchArtwork(artworkDisplay) {
     try {
-        artworkDisplay.innerHTML = "<p>Testing fetch...</p>";
+        artworkDisplay.innerHTML = "<p>Attempting to fetch artwork.json...</p>";
         const response = await fetch("https://dogcoincto.s3.amazonaws.com/website_artwork_cache/artwork.json");
-
         if (!response.ok) {
-            throw new Error(`Fetch failed with status: ${response.status}`);
+            artworkDisplay.innerHTML = `<p>Error: Fetch failed with HTTP status ${response.status}.</p>`;
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        artworkDisplay.innerHTML = "<p>Successfully fetched artwork.json. Parsing data...</p>";
+        const images = await response.json();
+
+        if (!images || images.length === 0) {
+            artworkDisplay.innerHTML = "<p>No artwork found in the data.</p>";
+            return;
         }
 
-        const data = await response.json();
-        artworkDisplay.innerHTML = `<p>Fetched ${data.length} images successfully!</p>`;
+        artworkDisplay.innerHTML = "<p>Populating artwork...</p>";
+        populateArtwork(images, artworkDisplay);
     } catch (error) {
-        artworkDisplay.innerHTML = `<p>Test failed: ${error.message}</p>`;
+        artworkDisplay.innerHTML = `<p>Error loading artwork: ${error.message}</p>`;
     }
-});
+}
 
 
 /*
