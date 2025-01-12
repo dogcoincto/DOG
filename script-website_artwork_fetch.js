@@ -1,10 +1,31 @@
+
+// Simple Test Script
+document.addEventListener("DOMContentLoaded", async () => {
+    const artworkDisplay = document.getElementById("artwork-display");
+    try {
+        artworkDisplay.innerHTML = "<p>Testing fetch...</p>";
+        const response = await fetch("https://dogcoincto.s3.amazonaws.com/website_artwork_cache/artwork.json");
+
+        if (!response.ok) {
+            throw new Error(`Fetch failed with status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        artworkDisplay.innerHTML = `<p>Fetched ${data.length} images successfully!</p>`;
+    } catch (error) {
+        artworkDisplay.innerHTML = `<p>Test failed: ${error.message}</p>`;
+    }
+});
+
+
+/*
 document.addEventListener("DOMContentLoaded", () => {
     const artworkDisplay = document.getElementById("artwork-display");
     artworkDisplay.innerHTML = "<p>Initializing artwork display...</p>"; // Debug message
     fetchArtwork(artworkDisplay);
 });
 
-/*
+// Load Static Images from s3
 document.addEventListener("DOMContentLoaded", () => {
     const artworkDisplay = document.getElementById("artwork-display");
     const testImages = [
@@ -13,8 +34,28 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
     populateArtwork(testImages, artworkDisplay);
 });
-*/
 
+
+
+// Basic Fetch Test
+document.addEventListener("DOMContentLoaded", async () => {
+    const artworkDisplay = document.getElementById("artwork-display");
+    try {
+        artworkDisplay.innerHTML = "<p>Testing fetch...</p>";
+        const response = await fetch("https://dogcoincto.s3.amazonaws.com/website_artwork_cache/artwork.json");
+        artworkDisplay.innerHTML = `<p>Fetch status: ${response.status}</p>`;
+        if (!response.ok) throw new Error("Failed to fetch artwork.json");
+
+        const data = await response.json();
+        artworkDisplay.innerHTML = `<p>Fetched ${data.length} images successfully!</p>`;
+    } catch (error) {
+        artworkDisplay.innerHTML = `<p>Test failed: ${error.message}</p>`;
+    }
+});
+
+
+
+// Full Fetch Function
 async function fetchArtwork(artworkDisplay) {
     try {
         artworkDisplay.innerHTML = "<p>Fetching artwork data...</p>"; // Debug message
@@ -40,6 +81,9 @@ async function fetchArtwork(artworkDisplay) {
     }
 }
 
+
+
+// Full populate artwork function
 function populateArtwork(images, artworkDisplay) {
     artworkDisplay.innerHTML = ""; // Clear debug messages and content
     let contentAdded = false;
@@ -68,3 +112,5 @@ function populateArtwork(images, artworkDisplay) {
         artworkDisplay.innerHTML += "<p>Artwork successfully loaded!</p>";
     }
 }
+
+*/
