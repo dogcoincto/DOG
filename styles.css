@@ -525,7 +525,7 @@ a:hover {
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
 .artwork-item {
@@ -545,9 +545,15 @@ a:hover {
 }
 
 .artwork-image {
-  max-width: 100%;
-  height: auto;
+  width: auto;
+  height: 200px;
   border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.artwork-image:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .artwork-button {
