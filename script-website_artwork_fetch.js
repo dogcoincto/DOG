@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         artworkDisplay.innerHTML = `<p>Test failed: ${error.message}</p>`;
     }
 });
-*/
+
 
 
 // Test: Simple Fetch Test with onscreen messages
@@ -90,9 +90,9 @@ async function fetchArtwork(artworkDisplay) {
         artworkDisplay.innerHTML = `<p>Error loading artwork: ${error.message}</p>`;
     }
 }
+*/
 
 
-/*
 // Full Fetch Function
 async function fetchArtwork(artworkDisplay) {
     try {
@@ -118,4 +118,4 @@ async function fetchArtwork(artworkDisplay) {
         artworkDisplay.innerHTML = `<p>Error loading artwork: ${error.message}</p>`;
     }
 }
-*/
+
