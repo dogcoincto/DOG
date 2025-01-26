@@ -15,7 +15,7 @@ function populateArtwork(images, artworkDisplay) {
         if (!image) return; // Skip invalid URLs
 
         const imageLink = document.createElement("a");
-        imageLink.href = `https://twitter.com/intent/tweet?text=Check out this amazing artwork!&url=${encodeURIComponent(image)}`;
+        imageLink.href = `https://twitter.com/intent/tweet?text="Check out this amazing artwork!"&url=${encodeURIComponent(image)}`;
         imageLink.target = "_blank";
         imageLink.title = `Post to X (Image ${index + 1})`;
 
@@ -97,7 +97,7 @@ async function fetchArtwork(artworkDisplay) {
 async function fetchArtwork(artworkDisplay) {
     try {
         artworkDisplay.innerHTML = "<p>Fetching artwork data...</p>"; // Debug message
-        const response = await fetch("https://dogcoincto.s3.amazonaws.com/website_artwork_cache/artwork.json");
+        const response = await fetch("https://dogcoincto.s3.amazonaws.com/artwork/artwork.json");
 
         if (!response.ok) {
             artworkDisplay.innerHTML = `<p>Error: Failed to fetch artwork. HTTP Status: ${response.status}</p>`;
