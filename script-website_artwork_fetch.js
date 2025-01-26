@@ -36,18 +36,17 @@ function populateArtwork(images, artworkDisplay) {
     }
 }
 
-/*
+
 // Test: Load Static Images from s3
 document.addEventListener("DOMContentLoaded", () => {
     const artworkDisplay = document.getElementById("artwork-display");
     const testImages = [
-        "https://dogcoincto.s3.amazonaws.com/website_artwork_cache/image-1736679308703-3.jpeg",
-        "https://dogcoincto.s3.amazonaws.com/website_artwork_cache/image-1736679126637-0.svg"
+        "https://dogcoincto.s3.amazonaws.com/artwork/image-1737908831728-0.jpg"
     ];
     populateArtwork(testImages, artworkDisplay);
 });
 
-
+/*
 
 // Test: Basic Fetch
 document.addEventListener("DOMContentLoaded", async () => {
@@ -92,7 +91,7 @@ async function fetchArtwork(artworkDisplay) {
 }
 */
 
-
+/*
 // Full Fetch Function
 async function fetchArtwork(artworkDisplay) {
     try {
@@ -118,4 +117,4 @@ async function fetchArtwork(artworkDisplay) {
         artworkDisplay.innerHTML = `<p>Error loading artwork: ${error.message}</p>`;
     }
 }
-
+*/
