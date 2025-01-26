@@ -53,8 +53,8 @@ function populateArtwork(images, artworkDisplay, logDisplay) {
         }
 
         const imageUrl = `https://dogcoincto.s3.us-east-2.amazonaws.com/${image}`;
-        const shareUrl = `https://dogcoincto.io/dynamic_images.html?image=${encodeURIComponent(image)}`;
-        const tweetText = encodeURIComponent("Unite the Pack! @dogcoincto @cooldogcoincto");
+        const shareUrl = `https://dogcoincto.io/artwork-pages/image-${index + 1}.html`;
+        const tweetText = encodeURIComponent("Check out this artwork! #DOGCoin #CryptoMeme");
 
         const imageLink = document.createElement("a");
         imageLink.href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(shareUrl)}`;
