@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const artworkDisplay = document.getElementById("artwork-display");
-    const logDisplay = document.getElementById("log-display");
+    const logDisplay = document.getElementById("log-display") || null; // Allow logDisplay to be null
 
-    addLog(logDisplay, "Initializing artwork loading...");
+    if (logDisplay) {
+        addLog(logDisplay, "Initializing artwork loading...");
+    }
     artworkDisplay.innerHTML = "<p>Loading artwork...</p>";
     fetchArtwork(artworkDisplay, logDisplay);
 });
@@ -11,38 +13,38 @@ async function fetchArtwork(artworkDisplay, logDisplay) {
     const jsonURL = "https://dogcoincto.s3.us-east-2.amazonaws.com/artwork/artwork.json";
 
     try {
-        addLog(logDisplay, `Fetching artwork.json from: ${jsonURL}`);
+        if (logDisplay) addLog(logDisplay, `Fetching artwork.json from: ${jsonURL}`);
         const response = await fetch(jsonURL);
-        addLog(logDisplay, `Response status: ${response.status}`);
+        if (logDisplay) addLog(logDisplay, `Response status: ${response.status}`);
 
         if (!response.ok) {
             throw new Error(`Failed to fetch artwork.json: HTTP ${response.status}`);
         }
 
         const images = await response.json();
-        addLog(logDisplay, `Artwork data fetched: ${JSON.stringify(images)}`);
+        if (logDisplay) addLog(logDisplay, `Artwork data fetched: ${JSON.stringify(images)}`);
 
         if (!images || images.length === 0) {
             artworkDisplay.innerHTML = "<p>No artwork available.</p>";
-            addLog(logDisplay, "No artwork data found in JSON.");
+            if (logDisplay) addLog(logDisplay, "No artwork data found in JSON.");
             return;
         }
 
         populateArtwork(images, artworkDisplay, logDisplay);
     } catch (error) {
         artworkDisplay.innerHTML = `<p>Error loading artwork: ${error.message}</p>`;
-        addLog(logDisplay, `Error: ${error.message}`);
+        if (logDisplay) addLog(logDisplay, `Error: ${error.message}`);
         console.error("Fetch error:", error);
     }
 }
 
 function populateArtwork(images, artworkDisplay, logDisplay) {
     artworkDisplay.innerHTML = ""; // Clear previous content
-    addLog(logDisplay, "Populating artwork...");
+    if (logDisplay) addLog(logDisplay, "Populating artwork...");
 
     images.forEach((image, index) => {
         if (!image) {
-            addLog(logDisplay, `Skipping invalid image at index ${index}.`);
+            if (logDisplay) addLog(logDisplay, `Skipping invalid image at index ${index}.`);
             return;
         }
 
@@ -61,13 +63,14 @@ function populateArtwork(images, artworkDisplay, logDisplay) {
 
         imageLink.appendChild(img);
         artworkDisplay.appendChild(imageLink);
-        addLog(logDisplay, `Added artwork image: ${imageUrl}`);
+        if (logDisplay) addLog(logDisplay, `Added artwork image: ${imageUrl}`);
     });
 
-    addLog(logDisplay, "Artwork successfully populated.");
+    if (logDisplay) addLog(logDisplay, "Artwork successfully populated.");
 }
 
 function addLog(logDisplay, message) {
+    if (!logDisplay) return; // Skip logging if logDisplay is null
     const logEntry = document.createElement("div");
     logEntry.textContent = message;
     logDisplay.appendChild(logEntry);
