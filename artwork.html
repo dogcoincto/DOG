@@ -175,6 +175,7 @@
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
+    connect-src 'self' https://dogcoincto.s3.us-east-2.amazonaws.com;
     img-src https: data:;
     script-src 'self' https://cdn.ethers.io https://www.googletagmanager.com https://www.google-analytics.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
@@ -245,6 +246,20 @@
     <!-- Dog ArtWork Div Area -->
 
 <main>
+  <div class="artwork-container">
+    <h1 class="artwork-title">DogCoinCTO Artwork</h1>
+    <p class="artwork-description">Click on an image to share it on X!</p>
+    
+    <!-- Logs Section -->
+    <div id="log-display" class="log-container">
+      <h2>Logs:</h2>
+    </div>
+
+    <!-- Artwork Display Section -->
+    <div id="artwork-display" class="artwork-list">
+      <!-- Images will be dynamically populated here -->
+    </div>
+  </div>
   <div class="artwork-container">
     <h1 class="artwork-title">DogCoinCTO Artwork</h1>
     <p class="artwork-description">Click on an image to share it on X!</p>
