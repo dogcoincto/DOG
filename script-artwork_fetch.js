@@ -54,7 +54,7 @@ function populateArtwork(images, artworkDisplay, logDisplay) {
 
         const imageUrl = `https://dogcoincto.s3.us-east-2.amazonaws.com/${image}`;
         const shareUrl = `https://dogcoincto.io/dynamic_images.html?image=${encodeURIComponent(image)}`;
-        const tweetText = encodeURIComponent("Check out this artwork! #DOGCoin #CryptoMeme");
+        const tweetText = encodeURIComponent("Unite the Pack! @dogcoincto @cooldogcoincto");
 
         const imageLink = document.createElement("a");
         imageLink.href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(shareUrl)}`;
