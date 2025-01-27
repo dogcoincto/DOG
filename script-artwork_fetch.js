@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchArtwork(artworkDisplay, logDisplay);
 });
 
-
 // Support Function: Fetch Artwork from S3
 async function fetchArtwork(artworkDisplay, logDisplay) {
-    const jsonURL = "https://artwork.dogcoincto.io.s3.amazonaws.com/artwork/artwork.json";
+    const jsonURL = "https://artwork.dogcoincto.io/artwork/artwork.json";
 
     try {
         if (logDisplay) addLog(logDisplay, `Fetching artwork.json from: ${jsonURL}`);
@@ -46,24 +45,22 @@ function populateArtwork(images, artworkDisplay, logDisplay) {
     artworkDisplay.innerHTML = ""; // Clear previous content
     if (logDisplay) addLog(logDisplay, "Populating artwork...");
 
-    images.forEach((image, index) => {
-        if (!image) {
-            if (logDisplay) addLog(logDisplay, `Skipping invalid image at index ${index}.`);
-            return;
-        }
+    const maxImages = images.length; // Number of images from artwork.json
 
-        const imageUrl = `https://artwork.dogcoincto.io.s3.amazonaws.com/artwork/${image}`;
-        const shareUrl = `https://dogcoincto.io/${image}.html`;
+    images.forEach((_, index) => {
+        const imageNumber = (index % maxImages) + 1; // Ensures the image number cycles through
+        const imageUrl = `https://artwork.dogcoincto.io/artwork/dogart${imageNumber}.jpg`;
+        const shareUrl = `https://dogcoincto.io/dogart${imageNumber}.html`; // Matches static page URL
         const tweetText = encodeURIComponent("Check out this artwork! #DOGCoin #CryptoMeme");
 
         const imageLink = document.createElement("a");
         imageLink.href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(shareUrl)}`;
         imageLink.target = "_blank";
-        imageLink.title = `Post to X (Image ${index + 1})`;
+        imageLink.title = `Post to X (Image ${imageNumber})`;
 
         const img = document.createElement("img");
         img.src = imageUrl;
-        img.alt = `Artwork ${index + 1}`;
+        img.alt = `Artwork ${imageNumber}`;
         img.classList.add("artwork-image");
 
         imageLink.appendChild(img);
@@ -73,7 +70,6 @@ function populateArtwork(images, artworkDisplay, logDisplay) {
 
     if (logDisplay) addLog(logDisplay, "Artwork successfully populated.");
 }
-
 
 // Support Function: Add Logs
 function addLog(logDisplay, message) {
