@@ -1,4 +1,3 @@
-// Initialize Runtime
 document.addEventListener("DOMContentLoaded", () => {
     const artworkDisplay = document.getElementById("artwork-display");
     const logDisplay = document.getElementById("log-display") || null; // Allow logDisplay to be null
@@ -10,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchArtwork(artworkDisplay, logDisplay);
 });
 
-// Support Function: Fetch Artwork from S3
 async function fetchArtwork(artworkDisplay, logDisplay) {
     const jsonURL = "https://dogcoincto.s3.us-east-2.amazonaws.com/artwork/artwork.json";
 
@@ -40,7 +38,6 @@ async function fetchArtwork(artworkDisplay, logDisplay) {
     }
 }
 
-// Support Function: Populate Dynamic Images
 function populateArtwork(images, artworkDisplay, logDisplay) {
     artworkDisplay.innerHTML = ""; // Clear previous content
     if (logDisplay) addLog(logDisplay, "Populating artwork...");
@@ -52,11 +49,10 @@ function populateArtwork(images, artworkDisplay, logDisplay) {
         }
 
         const imageUrl = `https://dogcoincto.s3.us-east-2.amazonaws.com/${image}`;
-        const shareUrl = `https://dogcoincto.io/artwork.html`; // Main artwork page
         const tweetText = encodeURIComponent("Check out this artwork! #DOGCoin #CryptoMeme");
 
         const imageLink = document.createElement("a");
-        imageLink.href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(shareUrl)}`;
+        imageLink.href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(imageUrl)}`;
         imageLink.target = "_blank";
         imageLink.title = `Post to X (Image ${index + 1})`;
 
@@ -73,7 +69,6 @@ function populateArtwork(images, artworkDisplay, logDisplay) {
     if (logDisplay) addLog(logDisplay, "Artwork successfully populated.");
 }
 
-// Support Function: Add Logs
 function addLog(logDisplay, message) {
     if (!logDisplay) return; // Skip logging if logDisplay is null
     const logEntry = document.createElement("div");
