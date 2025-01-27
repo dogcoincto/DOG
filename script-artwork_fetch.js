@@ -1,3 +1,6 @@
+// Main Function: Initialize artwork loading on DOMContentLoaded
+// Sets up the display area and calls fetchArtwork to load artwork data
+
 document.addEventListener("DOMContentLoaded", () => {
     const artworkDisplay = document.getElementById("artwork-display");
     const logDisplay = document.getElementById("log-display") || null; // Allow logDisplay to be null
@@ -9,8 +12,12 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchArtwork(artworkDisplay, logDisplay);
 });
 
+// Fetch Artwork: Retrieves artwork metadata from the artwork.json file stored in S3
+// - artworkDisplay: Element to display artwork
+// - logDisplay: Optional element for logging messages
 async function fetchArtwork(artworkDisplay, logDisplay) {
-    const jsonURL = "https://dogcoincto.s3.us-east-2.amazonaws.com/artwork/artwork.json";
+    const bucketBaseUrl = "https://dogcoincto.s3.us-east-2.amazonaws.com/";
+    const jsonURL = `${bucketBaseUrl}artwork/artwork.json`;
 
     try {
         if (logDisplay) addLog(logDisplay, `Fetching artwork.json from: ${jsonURL}`);
@@ -30,7 +37,7 @@ async function fetchArtwork(artworkDisplay, logDisplay) {
             return;
         }
 
-        populateArtwork(images, artworkDisplay, logDisplay);
+        populateArtwork(images, artworkDisplay, logDisplay, bucketBaseUrl);
     } catch (error) {
         artworkDisplay.innerHTML = `<p>Error loading artwork: ${error.message}</p>`;
         if (logDisplay) addLog(logDisplay, `Error: ${error.message}`);
@@ -38,7 +45,12 @@ async function fetchArtwork(artworkDisplay, logDisplay) {
     }
 }
 
-function populateArtwork(images, artworkDisplay, logDisplay) {
+// Populate Artwork: Dynamically creates HTML elements to display artwork and tweet links
+// - images: Array of artwork file keys from artwork.json
+// - artworkDisplay: Element to append artwork links and images
+// - logDisplay: Optional element for logging messages
+// - bucketBaseUrl: Base URL of the S3 bucket
+function populateArtwork(images, artworkDisplay, logDisplay, bucketBaseUrl) {
     artworkDisplay.innerHTML = ""; // Clear previous content
     if (logDisplay) addLog(logDisplay, "Populating artwork...");
 
@@ -48,27 +60,30 @@ function populateArtwork(images, artworkDisplay, logDisplay) {
             return;
         }
 
-        const imageUrl = `https://dogcoincto.s3.us-east-2.amazonaws.com/${image}`;
+        const htmlUrl = `${bucketBaseUrl}artwork/${image.split('/').pop()}.html`;
         const tweetText = encodeURIComponent("Check out this artwork! #DOGCoin #CryptoMeme");
 
         const imageLink = document.createElement("a");
-        imageLink.href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(imageUrl)}`;
+        imageLink.href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(htmlUrl)}`;
         imageLink.target = "_blank";
         imageLink.title = `Post to X (Image ${index + 1})`;
 
         const img = document.createElement("img");
-        img.src = imageUrl;
+        img.src = `${bucketBaseUrl}${image}`;
         img.alt = `Artwork ${index + 1}`;
         img.classList.add("artwork-image");
 
         imageLink.appendChild(img);
         artworkDisplay.appendChild(imageLink);
-        if (logDisplay) addLog(logDisplay, `Added artwork image: ${imageUrl}`);
+        if (logDisplay) addLog(logDisplay, `Added artwork image with link: ${htmlUrl}`);
     });
 
     if (logDisplay) addLog(logDisplay, "Artwork successfully populated.");
 }
 
+// Add Log: Appends log messages to a log display element
+// - logDisplay: Element to append log messages to
+// - message: Message to log
 function addLog(logDisplay, message) {
     if (!logDisplay) return; // Skip logging if logDisplay is null
     const logEntry = document.createElement("div");
