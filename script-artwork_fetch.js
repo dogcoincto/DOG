@@ -60,8 +60,15 @@ function populateArtwork(images, artworkDisplay, logDisplay, bucketBaseUrl) {
             return;
         }
 
-        const htmlUrl = `${bucketBaseUrl}artwork/${image.split('/').pop().replace(/\.[^/.]+$/, '')}.html`;
+        const filename = image.split('/').pop().replace(/\.[^/.]+$/, '');
+        const htmlUrl = `${bucketBaseUrl}artwork/${filename}.html`;
         const tweetText = encodeURIComponent("Check out this artwork! #DOGCoin #CryptoMeme");
+
+        if (logDisplay) {
+            addLog(logDisplay, `Processing image: ${image}`);
+            addLog(logDisplay, `Filename extracted: ${filename}`);
+            addLog(logDisplay, `Generated HTML URL: ${htmlUrl}`);
+        }
 
         const imageLink = document.createElement("a");
         imageLink.href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(htmlUrl)}`;
@@ -75,7 +82,9 @@ function populateArtwork(images, artworkDisplay, logDisplay, bucketBaseUrl) {
 
         imageLink.appendChild(img);
         artworkDisplay.appendChild(imageLink);
-        if (logDisplay) addLog(logDisplay, `Added artwork image with link: ${htmlUrl}`);
+        if (logDisplay) {
+            addLog(logDisplay, `Added artwork image with link to Twitter: ${imageLink.href}`);
+        }
     });
 
     if (logDisplay) addLog(logDisplay, "Artwork successfully populated.");
