@@ -60,7 +60,7 @@ function populateArtwork(images, artworkDisplay, logDisplay, bucketBaseUrl) {
             return;
         }
 
-        const htmlUrl = `${bucketBaseUrl}artwork/${image.split('/').pop()}.html`;
+        const htmlUrl = `${bucketBaseUrl}artwork/${image.split('/').pop().replace(/\.[^/.]+$/, '')}.html`;
         const tweetText = encodeURIComponent("Check out this artwork! #DOGCoin #CryptoMeme");
 
         const imageLink = document.createElement("a");
