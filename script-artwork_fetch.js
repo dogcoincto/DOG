@@ -45,22 +45,24 @@ function populateArtwork(images, artworkDisplay, logDisplay) {
     artworkDisplay.innerHTML = ""; // Clear previous content
     if (logDisplay) addLog(logDisplay, "Populating artwork...");
 
-    const maxImages = images.length; // Number of images from artwork.json
+    images.forEach((image, index) => {
+        if (!image) {
+            if (logDisplay) addLog(logDisplay, `Skipping invalid image at index ${index}.`);
+            return;
+        }
 
-    images.forEach((_, index) => {
-        const imageNumber = (index % maxImages) + 1; // Ensures the image number cycles through
-        const imageUrl = `https://dogcoincto.s3.us-east-2.amazonaws.com/artwork/dogart${imageNumber}.jpg`;
-        const shareUrl = `https://dogcoincto.io/dogart${imageNumber}.html`; // Matches static page URL
+        const imageUrl = `https://dogcoincto.s3.us-east-2.amazonaws.com/${image}`;
+        const shareUrl = `https://dogcoincto.io/artwork.html`; // Main artwork page
         const tweetText = encodeURIComponent("Check out this artwork! #DOGCoin #CryptoMeme");
 
         const imageLink = document.createElement("a");
         imageLink.href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${encodeURIComponent(shareUrl)}`;
         imageLink.target = "_blank";
-        imageLink.title = `Post to X (Image ${imageNumber})`;
+        imageLink.title = `Post to X (Image ${index + 1})`;
 
         const img = document.createElement("img");
         img.src = imageUrl;
-        img.alt = `Artwork ${imageNumber}`;
+        img.alt = `Artwork ${index + 1}`;
         img.classList.add("artwork-image");
 
         imageLink.appendChild(img);
