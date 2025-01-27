@@ -25,7 +25,7 @@ function getRandomHashtags(categories, logDisplay) {
         .map(key => {
             const values = categories[key];
             if (logDisplay) addLog(logDisplay, `Hashtags in category '${key}': ${values}`);
-            return values.sort(() => 0.5 - Math.random()).slice(0, Math.floor(Math.random() * 3) + 1); // Pick 1-3 hashtags
+            return values.sort(() => 0.5 - Math.random()).slice(0, 1 + Math.floor(Math.random() * 2)); // Pick 1-3 hashtags
         })
         .flat();
 
@@ -47,7 +47,7 @@ function getRandomTwitterPost(posts, logDisplay) {
 // - artworkDisplay: Element to display artwork
 // - logDisplay: Optional element for logging messages
 async function fetchArtwork(artworkDisplay, logDisplay) {
-    const bucketBaseUrl = "./";
+    const bucketBaseUrl = "https://dogcoincto.s3.us-east-2.amazonaws.com/";
     const jsonURL = `https://dogcoincto.s3.us-east-2.amazonaws.com/artwork/artwork.json`;
     const hashtagsURL = `./hashtags.json`;
     const twitterPostsURL = `./twitterposts.json`;
@@ -112,9 +112,9 @@ function populateArtwork(images, artworkDisplay, logDisplay, bucketBaseUrl, cate
 
         const filename = image.split('/').pop().replace(/\.[^/.]+$/, '');
         const htmlUrl = `${bucketBaseUrl}artwork/${filename}.html`;
-        const hashtags = getRandomHashtags(categories, logDisplay);
+        const hashtags = getRandomHashtags(categories, logDisplay).slice(0, 3);
         const twitterPost = getRandomTwitterPost(twitterPosts, logDisplay);
-        const tweetText = encodeURIComponent(`${twitterPost} ${hashtags.join(' ')}`);
+        const tweetText = encodeURIComponent(`${twitterPost} @dogcoincto ${hashtags.join(' ')}`);
 
         if (logDisplay) {
             addLog(logDisplay, `Processing image: ${image}`);
