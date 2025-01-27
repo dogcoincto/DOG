@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Support Function: Fetch Artwork from S3
 async function fetchArtwork(artworkDisplay, logDisplay) {
-    const jsonURL = "https://s3.ap-southeast-1.amazonaws.com/artwork.dogcoincto.io/artwork/artwork.json?timestamp=" + new Date().getTime();
+    const jsonURL = "https://s3.ap-southeast-1.amazonaws.com/artwork.dogcoincto.io/artwork/artwork.json";
 
     try {
         if (logDisplay) addLog(logDisplay, `Fetching artwork.json from: ${jsonURL}`);
