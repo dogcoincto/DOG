@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Support Function: Fetch Artwork from S3
 async function fetchArtwork(artworkDisplay, logDisplay) {
-    const jsonURL = "https://artwork.dogcoincto.io/artwork/artwork.json";
+    const jsonURL = "https://s3.ap-southeast-1.amazonaws.com/artwork.dogcoincto.io/artwork/artwork.json?timestamp=" + new Date().getTime();
 
     try {
         if (logDisplay) addLog(logDisplay, `Fetching artwork.json from: ${jsonURL}`);
@@ -49,7 +49,7 @@ function populateArtwork(images, artworkDisplay, logDisplay) {
 
     images.forEach((_, index) => {
         const imageNumber = (index % maxImages) + 1; // Ensures the image number cycles through
-        const imageUrl = `https://artwork.dogcoincto.io/artwork/dogart${imageNumber}.jpg`;
+        const imageUrl = `https://s3.ap-southeast-1.amazonaws.com/artwork.dogcoincto.io/artwork/dogart${imageNumber}.jpg`;
         const shareUrl = `https://dogcoincto.io/dogart${imageNumber}.html`; // Matches static page URL
         const tweetText = encodeURIComponent("Check out this artwork! #DOGCoin #CryptoMeme");
 
