@@ -574,3 +574,28 @@ a:hover {
 .artwork-button:hover {
   background-color: #CC7A00;
 }
+
+.dogctofun {
+  display: inline-block;
+  position: relative;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff9900;
+  text-decoration: none;
+  animation: float 2s ease-in-out infinite; /* Анимация для плавания */
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0); /* Начальное и конечное положение */
+  }
+  50% {
+    transform: translateY(-10px); /* Поднимем текст вверх на 10px в середине анимации */
+  }
+}
+
+.dogctofun:hover {
+  color: #ffffff; /* Меняем цвет текста при наведении */
+  transition: color 0.3s ease; /* Плавное изменение цвета */
+}
+
