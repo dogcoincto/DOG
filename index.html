@@ -329,24 +329,45 @@
 
 <div class="contract-specs">
     <a href="https://etherscan.io/tx/0x56fcdc804f0556bc86f0edeb45b7b4321a795a56bd6d02c85c9fa3b23dbdaf19" target="_blank" class="spec-link">
-        <img src="https://img.icons8.com/ios/50/000000/lock.png" alt="Contract Renounced" /> Contract Renounced
+        <img src="https://img.icons8.com/ios/50/000000/lock.png" alt="Contract Renounced" class="icon" /> Contract Renounced
     </a>
     <a href="https://etherscan.io/tx/0xd113ede8e84530ca7b50fbe970c7127c3817836f17cc68f97675b1229012ac46" target="_blank" class="spec-link">
-        <img src="https://img.icons8.com/ios/50/000000/fire.png" alt="LP Burnt" /> LP Burnt
+        <img src="https://img.icons8.com/ios/50/000000/coin.png" alt="LP Burnt" class="icon" /> LP Burnt
     </a>
     <a href="https://etherscan.io/address/0x131c1d2eef8c4fd641a0ea487dadcf33371346dd#readContract#F2" target="_blank" class="spec-link">
-        <img src="https://img.icons8.com/ios/50/000000/percentage.png" alt="No Taxes" /> No Taxes
+        <img src="https://img.icons8.com/ios/50/000000/percentage.png" alt="No Taxes" class="icon" /> No Taxes
     </a>
     <a href="https://etherscan.io/address/0x131c1d2eef8c4fd641a0ea487dadcf33371346dd#readContract#F21" target="_blank" class="spec-link">
-        <img src="https://img.icons8.com/ios/50/000000/database.png" alt="1B Total Supply" /> 1B Total Supply
+        <img src="https://img.icons8.com/ios/50/000000/database.png" alt="1B Total Supply" class="icon" /> 1B Total Supply
     </a>
     <span class="spec-text">
-        <img src="https://img.icons8.com/ios/50/000000/group.png" alt="Community Takeover" /> Community Takeover
+        <img src="https://img.icons8.com/ios/50/000000/raised-hand.png" alt="Community Takeover" class="icon" /> Community Takeover
     </span>
     <span class="spec-text">
-        <img src="https://img.icons8.com/ios/50/000000/refresh.png" alt="All Tokens in Circulation" /> All Tokens in Circulation
+        <img src="https://img.icons8.com/ios/50/000000/refresh.png" alt="All Tokens in Circulation" class="icon" /> All Tokens in Circulation
     </span>
 </div>
+
+<style>
+    .contract-specs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .spec-link, .spec-text {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .icon {
+        width: 20px; /* Уменьшаем размер изображения */
+        height: 20px;
+        margin-right: 8px; /* Отступ между иконкой и текстом */
+    }
+</style>
+
 
 
 
