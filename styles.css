@@ -586,7 +586,7 @@ a:hover {
 
 .dogctofun span {
   display: inline-block;
-  animation: piano-effect 1s ease-in-out infinite; /* Анимация для плавания букв */
+  animation: piano-effect 2s ease-in-out infinite, color-change 4s ease-in-out infinite;
 }
 
 @keyframes piano-effect {
@@ -594,7 +594,25 @@ a:hover {
     transform: translateY(0); /* Начальная и конечная позиция */
   }
   50% {
-    transform: translateY(-10px); /* Поднимаем букву вверх на 10px */
+    transform: translateY(-3px); /* Поднимаем букву немного (чуть выше) */
+  }
+}
+
+@keyframes color-change {
+  0% {
+    color: #ff9900; /* Начальный цвет */
+  }
+  25% {
+    color: #ff3399; /* Розовый */
+  }
+  50% {
+    color: #00ccff; /* Голубой */
+  }
+  75% {
+    color: #66cc33; /* Зеленый */
+  }
+  100% {
+    color: #ff9900; /* Возвращаемся к исходному цвету */
   }
 }
 
@@ -636,9 +654,11 @@ a:hover {
 }
 
 .dogctofun:hover {
-  text-decoration: none; /* Убираем подчеркивание при наведении */
+  text-decoration: underline; /* Плавное подчеркивание при наведении */
+  transition: text-decoration 0.3s ease;
 }
 
 .dogctofun span:hover {
-  text-decoration: none; /* Убираем подчеркивание у букв при наведении */
+  text-decoration: none; /* Убираем подчеркивание для букв при наведении */
 }
+
