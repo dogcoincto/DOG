@@ -586,33 +586,42 @@ a:hover {
 
 .dogctofun span {
   display: inline-block;
-  animation: float 2s ease-in-out infinite, color-change 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite, color-change 4s ease-in-out infinite;
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0); /* Начальное и конечное положение */
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(5px, -5px); /* Двигаем вправо и вверх */
   }
   50% {
-    transform: translateY(-5px); /* Поднимем текст вверх на 5px в середине анимации */
+    transform: translate(-5px, 5px); /* Двигаем влево и вниз */
+  }
+  75% {
+    transform: translate(7px, 3px); /* Двигаем вправо и вниз */
+  }
+  100% {
+    transform: translate(0, 0); /* Возвращаем в исходное положение */
   }
 }
 
 @keyframes color-change {
   0% {
-    color: #ff9900; /* Начальный цвет */
+    color: #ff9900;
   }
   25% {
-    color: #ff3399; /* Розовый */
+    color: #ff3399;
   }
   50% {
-    color: #00ccff; /* Голубой */
+    color: #00ccff;
   }
   75% {
-    color: #66cc33; /* Зеленый */
+    color: #66cc33;
   }
   100% {
-    color: #ff9900; /* Возвращаемся к исходному цвету */
+    color: #ff9900;
   }
 }
 
@@ -624,4 +633,5 @@ a:hover {
 .dogctofun span:hover {
   text-decoration: underline;
 }
+
 
