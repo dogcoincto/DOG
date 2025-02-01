@@ -347,6 +347,7 @@ a:hover {
 
 .return-to-top-button:hover {
   background-color: #CC7A00; /* Slightly darker orange for hover effect */
+  color: #ffffff; /* Keep text white on hover */
 }
 
 /* Styles for the Footer */
