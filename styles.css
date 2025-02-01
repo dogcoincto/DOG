@@ -586,52 +586,59 @@ a:hover {
 
 .dogctofun span {
   display: inline-block;
-  animation: float 4s ease-in-out infinite, color-change 4s ease-in-out infinite;
+  animation: piano-effect 1s ease-in-out infinite; /* Анимация для плавания букв */
 }
 
-@keyframes float {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(5px, -5px); /* Двигаем вправо и вверх */
+@keyframes piano-effect {
+  0%, 100% {
+    transform: translateY(0); /* Начальная и конечная позиция */
   }
   50% {
-    transform: translate(-5px, 5px); /* Двигаем влево и вниз */
-  }
-  75% {
-    transform: translate(7px, 3px); /* Двигаем вправо и вниз */
-  }
-  100% {
-    transform: translate(0, 0); /* Возвращаем в исходное положение */
+    transform: translateY(-10px); /* Поднимаем букву вверх на 10px */
   }
 }
 
-@keyframes color-change {
-  0% {
-    color: #ff9900;
-  }
-  25% {
-    color: #ff3399;
-  }
-  50% {
-    color: #00ccff;
-  }
-  75% {
-    color: #66cc33;
-  }
-  100% {
-    color: #ff9900;
-  }
+/* Для каждой буквы по очереди, чтобы они не двигались одновременно */
+.dogctofun span:nth-child(odd) {
+  animation-delay: 0s;
+}
+
+.dogctofun span:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+.dogctofun span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.dogctofun span:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.dogctofun span:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.dogctofun span:nth-child(6) {
+  animation-delay: 1s;
+}
+
+.dogctofun span:nth-child(7) {
+  animation-delay: 1.2s;
+}
+
+.dogctofun span:nth-child(8) {
+  animation-delay: 1.4s;
+}
+
+.dogctofun span:nth-child(9) {
+  animation-delay: 1.6s;
 }
 
 .dogctofun:hover {
-  text-decoration: underline; /* Добавляем подчеркивание при наведении */
-  transition: text-decoration 0.3s ease;
+  text-decoration: none; /* Убираем подчеркивание при наведении */
 }
 
 .dogctofun span:hover {
-  text-decoration: underline;
+  text-decoration: none; /* Убираем подчеркивание у букв при наведении */
 }
-
-
