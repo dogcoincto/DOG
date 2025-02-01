@@ -580,9 +580,13 @@ a:hover {
   position: relative;
   font-size: 24px;
   font-weight: bold;
-  color: #ff9900;
   text-decoration: none;
-  animation: float 2s ease-in-out infinite; /* Анимация для плавания */
+  color: #ff9900;
+}
+
+.dogctofun span {
+  display: inline-block;
+  animation: float 2s ease-in-out infinite, color-change 3s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -590,12 +594,34 @@ a:hover {
     transform: translateY(0); /* Начальное и конечное положение */
   }
   50% {
-    transform: translateY(-10px); /* Поднимем текст вверх на 10px в середине анимации */
+    transform: translateY(-5px); /* Поднимем текст вверх на 5px в середине анимации */
+  }
+}
+
+@keyframes color-change {
+  0% {
+    color: #ff9900; /* Начальный цвет */
+  }
+  25% {
+    color: #ff3399; /* Розовый */
+  }
+  50% {
+    color: #00ccff; /* Голубой */
+  }
+  75% {
+    color: #66cc33; /* Зеленый */
+  }
+  100% {
+    color: #ff9900; /* Возвращаемся к исходному цвету */
   }
 }
 
 .dogctofun:hover {
-  color: #ffffff; /* Меняем цвет текста при наведении */
-  transition: color 0.3s ease; /* Плавное изменение цвета */
+  text-decoration: underline; /* Добавляем подчеркивание при наведении */
+  transition: text-decoration 0.3s ease;
+}
+
+.dogctofun span:hover {
+  text-decoration: underline;
 }
 
