@@ -315,6 +315,7 @@ a:hover {
 
 .cta-button:hover {
   background-color: #cc7a00; /* Darker orange on hover */
+  color: #ffffff; /* Keep text white on hover */
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Slightly larger shadow */
 }
 
