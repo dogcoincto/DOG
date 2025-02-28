@@ -209,6 +209,36 @@ a:hover {
   color: #CC7A00; /* Slightly darker orange on hover */
 }
 
+
+
+/* CEX Listings Section */
+.cex-listings-title {
+  font-size: 1.5rem;
+  color: #333; /* Neutral dark color for the title */
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.listing-logo-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  justify-content: space-evenly; /* Space logos evenly */
+  align-items: center;
+  gap: 20px; /* Space between logos */
+}
+
+.listing-logo {
+  height: 53px; /* Standard height for logos */
+  width: auto; /* Maintain aspect ratio */
+  margin: 10px; /* Space around logos */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.listing-logo:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .contract-specs {
@@ -278,6 +308,18 @@ a:hover {
 
 .listing-logo:hover {
   transform: scale(1.1); /* Slight zoom on hover */
+}
+
+@media (max-width: 768px) {
+  .listing-logo {
+    height: 40px; /* Smaller logos for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .listing-logo {
+    height: 33px; /* Further reduced size for very small screens */
+  }
 }
 
 @media (max-width: 768px) {
@@ -672,4 +714,3 @@ a:hover {
 .dogctofun span.dot:hover {
   text-decoration: none;
 }
-
