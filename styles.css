@@ -714,3 +714,20 @@ a:hover {
 .dogctofun span.dot:hover {
   text-decoration: none;
 }
+
+
+@media (max-width: 768px) {
+  .cex-listings-title {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cex-listings-title {
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+}
